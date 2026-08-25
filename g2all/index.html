@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>SPACE GAME - PS4 7.00 - 11.02 FW GoldHEN Host</title>
+<title>SPACE GAME - PS4 Exploit Host</title>
 <style>
     /* خلفية المحل الفخمة والثابتة للشاشة */
     html, body {
@@ -21,25 +21,25 @@
     .space-card {
         background: rgba(10, 10, 10, 0.95);
         color: #fff;
-        padding: 25px;
+        padding: 20px;
         text-align: center;
         border: 4px solid #00f3ff;
         border-radius: 18px;
-        margin: 20px auto;
+        margin: 15px auto;
         max-width: 750px;
         box-shadow: 0 0 35px rgba(0, 243, 255, 0.7);
     }
     
     .space-card h2 {
         color: #00f3ff;
-        margin: 0 0 15px 0;
-        font-size: 36px;
+        margin: 0 0 10px 0;
+        font-size: 32px;
         text-shadow: 0 0 15px rgba(0, 243, 255, 0.8);
     }
     
     .space-card p {
-        font-size: 22px;
-        margin: 12px 0;
+        font-size: 20px;
+        margin: 8px 0;
         color: #ffffff;
         font-weight: bold;
     }
@@ -50,91 +50,90 @@
         direction: ltr;
         display: inline-block;
         font-weight: bold;
-        font-size: 26px;
-        text-shadow: 0 0 10px rgba(255, 7, 58, 0.6);
+        font-size: 22px;
         background: rgba(255, 255, 255, 0.1);
-        padding: 5px 12px;
+        padding: 3px 10px;
         border-radius: 8px;
         margin: 0 5px;
     }
 
-    h1 {
+    h1, h2 {
         text-shadow: 2px 2px 4px #000;
+    }
+
+    /* تنسيق الأزرار والقوائم */
+    .btn-container {
+        margin: 20px auto;
+        max-width: 800px;
+    }
+
+    .btn {
+        background-color: rgba(0, 0, 0, 0.8);
+        color: #00f3ff;
+        border: 2px solid #00f3ff;
+        padding: 12px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 10px;
+        cursor: pointer;
+        margin: 6px;
+        width: 220px;
+        box-shadow: 0 0 10px rgba(0, 243, 255, 0.4);
+        transition: 0.3s;
+        display: inline-block;
+        text-decoration: none;
+    }
+    
+    .btn:hover {
+        background-color: #00f3ff;
+        color: #000;
+        box-shadow: 0 0 20px #00f3ff;
+    }
+
+    .btn-special {
+        border-color: #ff073a;
+        color: #ff073a;
+    }
+    .btn-special:hover {
+        background-color: #ff073a;
+        color: #fff;
+        box-shadow: 0 0 20px #ff073a;
     }
 </style>
 </head>
 <body>
 
-<!-- بطاقة معلومات محل SPACE GAME تظهر في الأعلى -->
+<!-- بطاقة معلومات محل SPACE GAME -->
 <div class="space-card">
     <h2>🎮 SPACE GAME 🎮</h2>
     <p>📍 <strong>العنوان:</strong> المنصور - عمارة الجادرجي - الطابق الثاني</p>
     <p>📞 <strong>الهواتف:</strong> <a href="tel:07723232331">07723232331</a> - <a href="tel:07706050505">07706050505</a></p>
 </div>
 
-<script>
-var uaFull = navigator.userAgent;
-var match = uaFull.match(/PlayStation 4[ /]([\d.]+)/i);
-var isPS4 = match !== null;
-var fwVersion = isPS4 ? match[1] : "Unknown";
-var fwNum = parseFloat(fwVersion);
+<h1>PS4 Exploit Host by GamerHack</h1>
+<h3 style="color: #00f3ff; margin: 5px;">Select Your Firmware</h3>
 
-function onScriptError() {
-    msgs.innerHTML = "Content not Found! - Clear Browser Data and Re-Install Cache ...";
-}
+<!-- قائمة الأزرار الكاملة لكل الإصدارات -->
+<div class="btn-container">
+    <a href="../505/index.html" class="btn">5.05 FW GoldHEN</a>
+    <a href="../505v25/index.html" class="btn">5.05 FW v2.5</a>
+    <br>
+    <a href="../672/index.html" class="btn">6.72 FW GoldHEN</a>
+    <a href="../672v3/index.html" class="btn">6.72 FW v3.0</a>
+    <a href="../702/index.html" class="btn">7.02 FW Host v1.4</a>
+    <a href="../750/index.html" class="btn">7.50 - 7.55 FW Host v1.5</a>
+    <br>
+    <!-- هذا زر الـ 7.00 - 11.02 الأساسي -->
+    <a href="index.html" class="btn btn-special" style="width: 250px;">GoldHEN 7.00 - 11.02</a>
+    <a href="../900/index.html" class="btn">9.00 FW GoldHEN</a>
+    <a href="../900v28/index.html" class="btn">9.00 v2.8 | Manual</a>
+    <a href="../900v3/index.html" class="btn">9.00 v3.0 | Auto</a>
+    <br><br>
+    <a href="../index.html" class="btn" style="background: rgba(255,0,0,0.3); border-color: #ff073a; color: #fff; width: 180px;">العودة للرئيسية</a>
+</div>
 
-if (!isPS4) {
-    document.addEventListener("DOMContentLoaded", () => {
-        msgs.innerHTML = "Only for PS4 with Firmware 7.00 to 11.02";
-    });
-} else {
-    if (window.applicationCache.status == '0') {
-        if (fwNum >= 7.00 && fwNum <= 8.52) {
-            window.location.replace("cache700.html");
-        } else if (fwNum >= 9.00 && fwNum <= 9.60) {
-            window.location.replace("cache900.html");
-        } else if (fwNum >= 10.00 && fwNum <= 11.02) {
-            window.location.replace("cachecss.html");
-        } else {
-            document.addEventListener("DOMContentLoaded", () => {
-                msgs.innerHTML = 'Unsupported Firmware: <span style="color: red;">' + fwVersion + '</span>';
-            });
-        }
-    } else {
-        if (fwNum >= 7.00 && fwNum <= 8.52) {
-            var script = document.createElement('script');
-            script.type = 'module';
-            script.src = "700/alert.js";
-            script.onerror = onScriptError;
-            document.head.appendChild(script);
-        }
-        else if (fwNum >= 9.00 && fwNum <= 9.60) {
-            var script = document.createElement('script');
-            script.type = 'module';
-            script.src = "900/alert.js";
-            script.onerror = onScriptError;
-            document.head.appendChild(script);
-        }
-        else if (fwNum >= 10.00 && fwNum <= 11.02) {
-            var script = document.createElement('script');
-            script.src = "css/main.js";
-            script.onerror = onScriptError;
-            script.onload = function () {
-                setTimeout(function () {
-                    doJb();
-                }, 500);
-            };
-            document.head.appendChild(script);
-        }
-    }
-}
-</script>
-
-<h1>PS4 7.00 - 11.02 FW GoldHEN Host by GamerHack</h1>
-<hr>
 <br>
-<h1 id=msgs style="font-size: 30px;margin-top: 77px;margin-bottom: 250px;">Loading GoldHEN v2.4b18.10... Please Wait</h1>
-<h1 style="margin-top: 43px; font-size: 20px;">Special Thanks to:<a href="https://twitter.com/_AlAzif" style="color: #f31414;margin-left: 10px;margin-right: 10px;">@_AlAzif</a>ChendoChap<a href="https://x.com/Kameleonre_" style="color: #f31414;margin-left: 10px;margin-right: 10px;">@Kameleonre_</a>SiSTR0 Abc</h1>
+<h2 style="font-size: 18px; margin-top: 20px;">Special Thanks to: <a href="https://twitter.com/_AlAzif" style="color: #f31414;">@_AlAzif</a> ChendoChap <a href="https://x.com/Kameleonre_" style="color: #f31414;">@Kameleonre_</a> SiSTR0 Abc</h2>
 
 </body>
 </html>
