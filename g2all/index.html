@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>SPACE GAME - PS4 Exploit Host</title>
+<title>SPACE GAME - PS4 7.00 - 11.02 GoldHEN Host</title>
 <style>
     /* خلفية المحل الفخمة والثابتة للشاشة */
     html, body {
@@ -57,28 +57,23 @@
         margin: 0 5px;
     }
 
-    h1, h2 {
+    h1 {
         text-shadow: 2px 2px 4px #000;
+        font-size: 22px;
     }
 
-    /* تنسيق الأزرار والقوائم */
-    .btn-container {
-        margin: 20px auto;
-        max-width: 800px;
-    }
-
+    /* تنسيق أزرار التفعيل والتحكم */
     .btn {
-        background-color: rgba(0, 0, 0, 0.8);
+        background-color: rgba(0, 0, 0, 0.85);
         color: #00f3ff;
         border: 2px solid #00f3ff;
-        padding: 12px 20px;
-        font-size: 16px;
+        padding: 15px 35px;
+        font-size: 20px;
         font-weight: bold;
-        border-radius: 10px;
+        border-radius: 12px;
         cursor: pointer;
-        margin: 6px;
-        width: 220px;
-        box-shadow: 0 0 10px rgba(0, 243, 255, 0.4);
+        margin: 15px;
+        box-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
         transition: 0.3s;
         display: inline-block;
         text-decoration: none;
@@ -87,17 +82,17 @@
     .btn:hover {
         background-color: #00f3ff;
         color: #000;
-        box-shadow: 0 0 20px #00f3ff;
+        box-shadow: 0 0 30px #00f3ff;
     }
 
-    .btn-special {
+    .btn-back {
         border-color: #ff073a;
         color: #ff073a;
     }
-    .btn-special:hover {
+    .btn-back:hover {
         background-color: #ff073a;
         color: #fff;
-        box-shadow: 0 0 20px #ff073a;
+        box-shadow: 0 0 30px #ff073a;
     }
 </style>
 </head>
@@ -110,30 +105,81 @@
     <p>📞 <strong>الهواتف:</strong> <a href="tel:07723232331">07723232331</a> - <a href="tel:07706050505">07706050505</a></p>
 </div>
 
-<h1>PS4 Exploit Host by GamerHack</h1>
-<h3 style="color: #00f3ff; margin: 5px;">Select Your Firmware</h3>
+<h1>PS4 7.00 - 11.02 FW GoldHEN Host</h1>
+<hr style="width: 50%; border: 1px solid #444;">
 
-<!-- قائمة الأزرار الكاملة لكل الإصدارات -->
-<div class="btn-container">
-    <a href="../505/index.html" class="btn">5.05 FW GoldHEN</a>
-    <a href="../505v25/index.html" class="btn">5.05 FW v2.5</a>
+<h1 id="msgs" style="font-size: 26px; margin: 20px 0; color: #00f3ff;">Ready to Load GoldHEN</h1>
+
+<!-- زر التفعيل اليدوي للتهكير وزر العودة -->
+<div>
+    <button class="btn" onclick="startJb()">تفعيل GoldHEN (تشغيل الثغرة)</button>
     <br>
-    <a href="../672/index.html" class="btn">6.72 FW GoldHEN</a>
-    <a href="../672v3/index.html" class="btn">6.72 FW v3.0</a>
-    <a href="../702/index.html" class="btn">7.02 FW Host v1.4</a>
-    <a href="../750/index.html" class="btn">7.50 - 7.55 FW Host v1.5</a>
-    <br>
-    <!-- هذا زر الـ 7.00 - 11.02 الأساسي -->
-    <a href="index.html" class="btn btn-special" style="width: 250px;">GoldHEN 7.00 - 11.02</a>
-    <a href="../900/index.html" class="btn">9.00 FW GoldHEN</a>
-    <a href="../900v28/index.html" class="btn">9.00 v2.8 | Manual</a>
-    <a href="../900v3/index.html" class="btn">9.00 v3.0 | Auto</a>
-    <br><br>
-    <a href="../index.html" class="btn" style="background: rgba(255,0,0,0.3); border-color: #ff073a; color: #fff; width: 180px;">العودة للرئيسية</a>
+    <a href="../index.html" class="btn btn-back">العودة للقائمة الرئيسية</a>
 </div>
 
 <br>
-<h2 style="font-size: 18px; margin-top: 20px;">Special Thanks to: <a href="https://twitter.com/_AlAzif" style="color: #f31414;">@_AlAzif</a> ChendoChap <a href="https://x.com/Kameleonre_" style="color: #f31414;">@Kameleonre_</a> SiSTR0 Abc</h2>
+<h1 style="font-size: 16px; margin-top: 30px;">Special Thanks to: <a href="https://twitter.com/_AlAzif" style="color: #f31414;">@_AlAzif</a> ChendoChap <a href="https://x.com/Kameleonre_" style="color: #f31414;">@Kameleonre_</a> SiSTR0 Abc</h1>
+
+<script>
+var uaFull = navigator.userAgent;
+var match = uaFull.match(/PlayStation 4[ /]([\d.]+)/i);
+var isPS4 = match !== null;
+var fwVersion = isPS4 ? match[1] : "Unknown";
+var fwNum = parseFloat(fwVersion);
+
+function onScriptError() {
+    msgs.innerHTML = "Content not Found! - Clear Browser Data and Re-Install Cache ...";
+}
+
+if (!isPS4) {
+    document.addEventListener("DOMContentLoaded", () => {
+        msgs.innerHTML = "Only for PS4 with Firmware 7.00 to 11.02";
+    });
+}
+
+function startJb() {
+    msgs.innerHTML = "Loading GoldHEN... Please Wait";
+    if (window.applicationCache.status == '0') {
+        if (fwNum >= 7.00 && fwNum <= 8.52) {
+            window.location.replace("cache700.html");
+        } else if (fwNum >= 9.00 && fwNum <= 9.60) {
+            window.location.replace("cache900.html");
+        } else if (fwNum >= 10.00 && fwNum <= 11.02) {
+            window.location.replace("cachecss.html");
+        } else {
+            msgs.innerHTML = 'Unsupported Firmware: <span style="color: red;">' + fwVersion + '</span>';
+        }
+    } else {
+        if (fwNum >= 7.00 && fwNum <= 8.52) {
+            var script = document.createElement('script');
+            script.type = 'module';
+            script.src = "700/alert.js";
+            script.onerror = onScriptError;
+            document.head.appendChild(script);
+        }
+        else if (fwNum >= 9.00 && fwNum <= 9.60) {
+            var script = document.createElement('script');
+            script.type = 'module';
+            script.src = "900/alert.js";
+            script.onerror = onScriptError;
+            document.head.appendChild(script);
+        }
+        else if (fwNum >= 10.00 && fwNum <= 11.02) {
+            var script = document.createElement('script');
+            script.src = "css/main.js";
+            script.onerror = onScriptError;
+            script.onload = function () {
+                setTimeout(function () {
+                    doJb();
+                }, 500);
+            };
+            document.head.appendChild(script);
+        } else {
+            msgs.innerHTML = "Please check your system version or cache.";
+        }
+    }
+}
+</script>
 
 </body>
 </html>
